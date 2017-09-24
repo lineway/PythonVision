@@ -14,3 +14,10 @@ def translate_image_format(filelist):
                     Image.open(infile).save(outfile)
                 except IOError:
                     print('cannot convert', infile)
+
+def imresize(im, sz):
+    '''
+    使用PIL对象重新定义图像数组的大小
+    '''
+    pil_im = Image.fromarray(uint8(im))
+    return array(pil_im.resize(sz))
